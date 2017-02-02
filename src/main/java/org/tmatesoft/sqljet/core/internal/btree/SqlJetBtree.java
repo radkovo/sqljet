@@ -333,7 +333,7 @@ public class SqlJetBtree implements ISqlJetBtree {
                 if (page1.getByteUnsigned(18) > 1) {
                     readOnly = true;
                 }
-                SqlJetAssert.assertFalse(page1.getByteUnsigned(19) > 1, SqlJetErrorCode.NOTADB);
+                //SqlJetAssert.assertFalse(page1.getByteUnsigned(19) > 1, SqlJetErrorCode.NOTADB);
 
                 /*
                  * The maximum embedded fraction must be exactly 25%. And the
@@ -342,7 +342,7 @@ public class SqlJetBtree implements ISqlJetBtree {
                  * to vary, but as of version 3.6.0, we require them to be
                  * fixed.
                  */
-                SqlJetAssert.assertTrue(SqlJetUtility.memcmp(page1, 21, PAGE1_21, 0, 3) == 0, SqlJetErrorCode.NOTADB);
+                //SqlJetAssert.assertTrue(SqlJetUtility.memcmp(page1, 21, PAGE1_21, 0, 3) == 0, SqlJetErrorCode.NOTADB);
 
                 int pageSize = page1.getShortUnsigned(16);
                 if ((pageSize - 1 & pageSize) != 0 || pageSize < ISqlJetLimits.SQLJET_MIN_PAGE_SIZE) {
